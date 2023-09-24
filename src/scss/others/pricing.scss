@@ -1,0 +1,142 @@
+.pricing{
+    margin-top: 120px;
+
+    &__choice{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        div{
+            display: flex;
+            align-items: center;
+            width: 50%;
+
+            p{
+                font-weight: 700;
+            }
+        }
+    }
+
+    &__checkbox{
+        display: none;
+    }
+
+    &__label{
+        width: 44px;
+        height: 44px;
+        border: 6px solid $dark-green;
+        margin-left: 15px;
+        border-radius: 100%;
+        cursor: pointer;
+
+        &:hover{
+            background-color: lighten($color: $green, $amount: 30%)
+        }
+    }
+
+    &__checkbox:checked + &__label{
+        background-color: $green;
+    }
+
+    &__item{
+        background-color: $dark-green;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        margin-top: 20px;
+
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        &:hover{
+            background-color: $green;
+            
+            & *{
+                color: $body-color
+            }
+
+            li{
+                border-color: $body-color;
+            }
+
+            .button_green{
+                border-color:$body-color;
+                color: #fff;
+                background-color:$body-color;
+            }
+
+            .button_white{
+                border-color: $body-color;
+            }
+
+        }
+    }
+
+    &__price{
+        @include text(64px, 700, 75px);
+        margin: 20px 0;
+        color: $green;
+    }
+
+    &__characteristic{
+        padding: 15px 0;
+        border-bottom: 2px solid #FFFFFF;
+    }
+
+    .button{
+        margin-top: 20px;
+        display: block;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .pricing{
+        &__subscription{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__choice{
+            width: 50%;
+            justify-content:space-between;
+
+            div{
+                width: auto;
+
+                p{
+                    font-size: 36px;
+                }
+            }
+        }
+
+        &__types{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        &__item{
+            width: 49%;
+        }
+    }
+}
+
+@media screen and (min-width: 1290px){
+    .pricing{
+        &__item{
+            width: 23%;
+            background-color: transparent;
+            border: 3px solid $green;
+        }
+
+        &__choice{
+            width: 33%;
+        }
+    }
+}

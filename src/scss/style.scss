@@ -1,0 +1,758 @@
+@import "../../node_modules/normalize.css/normalize";
+@import "../../node_modules/swiper/swiper.scss";
+@import "../../node_modules/swiper/components/scrollbar/scrollbar.scss";
+@import "../../node_modules/swiper/components/navigation/navigation.scss";
+@import "../../node_modules/swiper/components/effect-fade/effect-fade.scss";
+
+$body-color: #020E0C;
+$green: #1EEBCD;
+$dark-green: #0E2E29;
+
+@mixin text($size, $weight, $height){
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+}
+
+@mixin border($deg, $percent1, $percent2){
+    position: relative;
+    border-image: none;
+    border:none;
+    border-radius: 10px;
+    padding: 20px 30px;
+    backdrop-filter: blur(40px);
+    &::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 10px; 
+        padding: 3px; 
+        background:linear-gradient($deg,#BEFFF6 $percent1,#020E0C $percent2); 
+        -webkit-mask: 
+            linear-gradient(#fff 0 0) content-box, 
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+                mask-composite: exclude; 
+    }
+}
+
+@import "./others/nav.scss";
+@import "./others/header.scss";
+@import "./others/rates.scss";
+@import "./others/pricing.scss";
+@import "./others/discount.scss";
+@import "./others/footer.scss";
+
+
+*, *::after, *::before{
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+    @include text(18px, 400, 150%);
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #fff;
+}
+
+body{
+    background-color: $body-color;
+    &.hidden{
+        overflow: hidden;
+    }
+}
+
+.container{
+    max-width: 1290px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.title{
+    @include text(32px, 700, 150%);
+    margin: 0
+}
+
+.subtitle{
+    @include text(24px, 700, 150%);
+    margin: 0;
+}
+
+
+
+.button{
+    @include text(14px, 700, 150%);
+    padding: 24px 0;
+    border: none;
+    outline: none;
+    display: inline-block;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+
+    &_green{
+        background-color: $green;
+        color: #000;
+        border: 3px solid $green;
+        box-shadow: 0px 4px 67px rgba(30, 235, 205, 0.6);
+    }
+
+    &_white{
+        background:transparent;
+        border: 3px solid #fff;
+    }
+}
+
+.pluses{
+
+    &__item + &__item{
+        margin-top: 30px;
+    }
+
+    &__number{
+        @include text(64px, 600, 75px);
+        font-style: normal;
+        color: $green;
+        margin: 0;
+    }
+
+    &__text{
+        margin: 10px 0 0 0;
+
+    }
+}
+
+.encourage{
+    margin-top: 120px;
+
+    &__preview{
+        width: 100%;
+        height: auto;
+        margin: 50px 0;
+    }
+
+    &__item + &__item{
+        margin-top: 60px;
+    }
+
+    &__img{
+        width: 70%;
+        height: auto;
+    }
+
+    &__subtitle{
+        margin: 25px 0;
+        color: $green;
+    }
+
+    &__text{
+        margin: 0;
+    }
+
+    &__choose{
+        width: 100%;
+        margin-top: 60px;
+    }
+}
+
+.features{
+    margin-top: 120px;
+    background: url("@img/features-bg.svg");
+    background-repeat:no-repeat;
+    background-position: 25% 41%;
+
+    &__img{
+        width: 100%;
+        height: auto;
+        margin: 50px 0 50px;
+    }
+
+    &__item + &__item{
+        margin-top: 70px;
+    }
+
+    &__check{
+        width: 100%;
+    }
+
+    &__title2{
+        color: $green;
+    }
+    &__subtitle2{
+        margin: 30px 0;
+    }
+
+    &__link{
+        color: $green;
+    }
+}
+
+.plugin{
+    margin-top: 120px;
+
+    &__item{
+        margin-top: 60px;
+    }
+
+    &__img{
+        width: 70%;
+    }
+
+    &__subtitle{
+        margin: 30px 0 20px;
+        color: $green;
+    }
+}
+
+.reviews{
+    margin-top: 120px;
+    overflow: hidden;
+    &__slider{
+        margin-top: 50px;
+        position: relative;
+    }
+
+    .swiper{
+        &-wrapper{
+            align-items: stretch;
+        }
+
+        &-slide{
+            cursor: pointer;
+            height: auto;
+            position: relative;
+        }
+
+        &-content{
+            padding: 20px;
+            background-color:$dark-green;
+            border-radius: 10px;
+            margin-bottom: 120px;
+        }
+        &-company{
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        &-scrollbar{
+            position: static;
+            margin-top: 40px;
+            background-color: $dark-green;
+            cursor: pointer;
+        }
+
+        .swiper-scrollbar-drag{
+            background-color:$green;
+        }
+    }
+}
+
+.swiper{
+    &-img{
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        object-fit: cover;
+        margin-right: 20px;
+    }
+    &-company-name{
+        font-weight: 700;
+        margin: 0;
+    }
+    &-company-work{
+        margin: 10px 0;
+    }
+}
+
+.faq{
+    margin-top: 120px;
+
+    &__title{
+        color: $green;
+        margin-bottom: 30px;
+    }
+
+    &__documentation{
+        width: 100%;
+        background-color: transparent;
+        color: $green;
+        box-shadow: none;
+        margin-top: 30px;
+    }
+
+    &__accordeon{
+        margin-top: 70px;
+    }
+
+    &__item{
+        margin-top: 30px;
+    }
+
+    
+
+    &__question-block{
+        display: flex;
+        align-items: start;
+        
+    }
+    &__open{
+        margin-right: 20px;
+        margin-top: 10px;
+        transition: all .5s;
+        cursor: pointer;
+    }
+
+    &__question{
+        @include text(24px, 700, 150%);
+        margin: 0;
+    }
+
+    &__answer{
+        display: none;
+    }
+
+    &__checkbox{
+        display: none;
+        &:checked ~ .faq__answer{
+            display: block;
+        }
+        &:checked ~ .faq__question-block .faq__open{
+            transform: rotate(90deg);
+        }
+    } 
+}
+
+.statistic{
+    margin-top: 120px;
+
+    &__slider{
+        margin-top: 50px;
+    }
+
+    .swiper{
+        position: relative;
+        
+        &-company{
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+
+            .swiper-text{
+                margin: 10px 0;
+            }
+        }
+        &-img{
+            width: 60px;
+            height: 60px;
+        }
+
+        &-item{
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            margin-top: 20px;
+            
+            .swiper-text{
+                margin: 0 0 10px;
+            }
+        } 
+
+        &-statistic-interval{
+            @include text(24px, 700, 150%);
+            margin: 0;
+        }
+
+        &-count-block{
+
+            &-before{
+                background-color: $dark-green;
+                border-radius: 10px;
+                text-align: center;
+            }
+
+            &-after{
+                background-color: $green;
+                border-radius: 10px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                p{
+                    color: $body-color;
+                    font-weight: 700;
+                }
+                
+            }
+        }
+        &-count{
+            margin: 0;
+        }
+
+        &-description{
+            margin-top: 70px;
+        }
+
+        &-about{
+            @include text(24px, 700, 150%);
+        }
+
+        &-button-prev, &-button-next{
+            width: 40px;
+            height: 40px;
+            background-color:$green;
+            border-radius: 100%;
+            &::after{
+                content: none;
+            }
+
+            svg{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                
+            }
+        }
+
+        &-button-prev{
+            position: absolute;
+            top: 35px;
+            left: auto;
+            right: 60px;
+            svg{
+                margin-left: -1px;
+            }
+        }
+
+        &-button-next{
+            position: absolute;
+            top: 35px;
+            right: 0;
+
+            svg{
+                margin-left: 1px;
+            }
+        }
+
+        .swiper-button-disabled {
+            svg{
+                path{
+                    stroke: $body-color;
+                }
+            }
+      }
+
+
+    }
+
+    .width-half{
+        width: 45%;
+    }
+}
+
+
+
+
+
+@import "./features.scss";
+@import "./documentation.scss";
+
+
+
+
+@media screen and (min-width: 480px){
+
+    .encourage{
+        &__img{
+            width: 45%;
+        }
+    }
+
+    .features{
+        &__content{
+            @include border(50deg, 50%, 100%);
+        }
+    }
+
+    .plugin{
+        &__title{
+            width: 60%;
+        }
+
+        &__img{
+            width: 45%;
+        }
+    }
+
+    .reviews{
+        .swiper-content{
+            padding: 30px;
+        }
+    }
+
+    .faq{
+        &__answer{
+            margin-left: 48px;
+        }
+    }
+
+    .statistic{
+        .swiper-description{
+            @include border(280deg, 0%, 90%);
+        }
+    }
+
+    .triangle-bg{
+        background-image: url("@img/footer-bg.png");
+        background-position: right 65%  bottom 0;
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (min-width: 768px){
+    *, *::after, *::before{
+        @include text(24px, 400, 150%);
+    }
+    
+    .title{
+        @include text(64px, 700, 150%);
+        margin: 0
+    }
+    
+    .subtitle{
+        @include text(36px, 700, 150%);
+        margin: 0;
+    }
+
+    .button{
+        @include text(18px, 700, 150%);
+    }
+
+    .pluses{
+        &__wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        &__item{
+            width: 45%;
+            margin: 20px 0 0 !important;
+        }
+    }
+
+    .encourage, .plugin{
+        &__img{
+            width: 30%;
+        }
+    }
+
+    .features{
+        &__content{
+            padding: 60px;
+            &::before{
+                background: linear-gradient(120deg, #BEFFF6 0%, #020E0C 70%);
+            }
+        }
+        &__img{
+            width: 80%;
+            margin: 0 auto 60px;
+            display: block;
+        }
+
+        &__subtitle2{
+            margin: 30px 0;
+        }
+    }
+
+    .faq{
+        &__open{
+            margin-top: 0;
+        }
+    }
+
+    .statistic{
+        .swiper-about{
+            font-size: 36px;
+        }
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .pluses{
+        &__wrapper{
+            justify-content: start;
+        }
+        &__item{
+            width: 35%;
+        }
+    }
+
+    .encourage{
+        &__title{
+            width: 60%;
+        }
+        &__preview{
+            width: 60%;
+            display: block;
+            margin: 50px auto;
+        }
+        &__img{
+            width: 20%;
+        }
+    }
+
+    .features{
+        &__img{
+            width: 50%;
+            margin-top: 50px;
+        }
+    }
+
+    .plugin{
+        &__title{
+            width: 100%;
+        }
+
+        &__item{
+            display: flex;
+            align-items: start;
+        }
+
+        &__img{
+            width: 190px;
+            margin-right: 30px;
+        }
+    }
+
+    .triangle-bg{
+        background-position: right 0 bottom 0;
+    }
+
+    
+}
+
+@media screen and (min-width: 1290px){
+    .pluses{
+        &__wrapper{
+            align-items: start;
+        }
+        &__item{
+            width: 25%;
+        }
+    }
+    .encourage{
+        &__wrapper{
+            display: flex;
+            align-items: start;
+        }
+        &__title{
+            width: 100%;
+        }
+        &__choose{
+            display: none;
+        }
+        &__content{
+            width: 70%;
+        }
+        &__preview{
+            margin-left: 0;
+            width: 70%;
+        }
+    }
+
+    .features{
+        background-position: 0% 41%;
+        &__item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &:nth-child(2n+1){
+                flex-direction: row-reverse;
+            }
+
+            &_end{
+                display: block;
+            }
+            &:last-child{
+                align-items: start;
+                .features__data{
+                    width: 50%;
+
+                    p{
+                        margin: 0 0 10px 0;
+                        
+                    }
+                }
+            }
+        }
+
+        &__global{
+            width: 50%;
+        }
+
+        &__content{
+            width: 60%;
+        }
+        &__img{
+            width: 35%;
+        }
+        
+        &__check{
+            display: none;
+        }
+    }
+
+    .faq{
+        &__wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+        &__data{
+            width: 40%;
+        }
+        &__accordeon{
+            margin-top: 0;
+            width: 50%;
+        }
+    }
+
+    .statistic{
+        .swiper{
+            &-slide{
+                display: flex;
+                justify-content: space-between;
+                align-items: end;
+            }
+
+            &-description{
+                width: 50%;
+            }
+
+            &-info{
+                width: 45%;
+            }
+
+            &-button{
+                &-prev{
+                    top: 90px;
+                    right: 60%;
+                }
+                &-next{
+                    top: 90px;
+                    right: 55%;
+                }
+            }
+        }
+    }  
+}
+
+
+

@@ -1,0 +1,22 @@
+<header class="header">
+    @@include('./nav.html') 
+    <div class="container">
+        <div class="header__wrapper">
+            <div class="header__content">
+                <h1 class="header__title">@@title</h1>
+                <p class="header__text">@@text</p>
+                @@if (! context.form) { 
+                    <a href="#" class="header__choose button button_green">Choose your plan</a>
+                    <p class="header__version">Or <a href="#" class="header__version-link">try the free version</a></p>
+                }
+                @@if (context.form) { 
+                    <form action="#" class="header__form">
+                        <input type="text" class="header__input" placeholder="Find the right plugin">
+                        <button type="submit" class="header__search button button_green">Search</button>
+                    </form>
+                }
+            </div>
+            <img class="header__img" src=@@preview-img alt="">
+        </div>
+    </div>
+</header>

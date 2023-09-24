@@ -1,0 +1,133 @@
+.rates{
+    margin-top: 120px;
+
+
+    &__variants{
+        display: flex;
+        justify-content: space-between;
+
+        .rates__text{
+            display: none;
+        }
+
+        .button{
+            width: 100%;
+            padding: 20px 0;
+        }
+    }
+
+    &__subtitle2{
+        display: none;
+    }
+
+    &__pro, &__free{
+        width: 45%;
+        margin-top: 50px;
+    }
+
+    &__price{
+        @include text(32px, 700, 38px);
+        margin: 30px 0;
+        &_green{
+            color: $green;
+        }
+    }
+
+    &__item{
+        text-align: center;
+        margin-top: 40px;
+        border-bottom: 3px solid $dark-green;
+    }
+
+    &__contains{
+        display: flex;
+        justify-content: space-between; 
+    }
+
+    &__reply{
+        width: 50%;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 16px 0;
+    }
+
+    &__triangle{
+        margin-right: 15px;
+    }
+}
+
+@media screen and (min-width: 480px){
+    .rates{
+        &__text{
+            display: block !important;
+        }
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .rates{
+        &__top{
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+        }
+
+        &__title{
+            width: 33%;
+        }
+        &__variants{
+            width: 66%;
+        }
+
+        &__pro, &__free {
+            width: 48%;
+            margin-top: 0;
+        }
+
+        &__bottom{
+            position: relative;
+        }
+
+        &__subtitle2{
+            display: block;
+            position: relative;
+            top: -40px;
+            left: 0;
+            width: 20%;
+        }
+
+        &__item{
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+
+            .rates__text{
+                width: 30%;
+                margin: 0;
+                text-align: left;
+            }
+        }
+
+        &__item{
+            border:none;
+            align-items: stretch;
+        }
+
+        &__contains{
+            width: 65%;
+            align-items: start;
+        }
+
+        &__reply{
+            width: 48%;
+            justify-content: start;
+            margin: 0;
+            height: 100%;
+            border-bottom: 3px solid $dark-green; 
+            padding-bottom: 20px;
+        }
+
+    }
+}
+
